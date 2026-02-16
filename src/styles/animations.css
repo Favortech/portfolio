@@ -1,0 +1,175 @@
+/**
+ * Global Animations & Scroll Effects
+ * 
+ * These animations trigger when elements scroll into view
+ */
+
+/* Fade-in animation for scroll triggers */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale animation for cards */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Slide animation for project cards */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Default state - invisible and slightly off */
+[data-scroll-animate],
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Apply animation when visible */
+[data-scroll-animate].fade-in-visible,
+.scroll-animate.fade-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Stagger animation for list items */
+[data-scroll-animate]:nth-child(1) { transition-delay: 0.1s; }
+[data-scroll-animate]:nth-child(2) { transition-delay: 0.2s; }
+[data-scroll-animate]:nth-child(3) { transition-delay: 0.3s; }
+[data-scroll-animate]:nth-child(4) { transition-delay: 0.4s; }
+[data-scroll-animate]:nth-child(5) { transition-delay: 0.5s; }
+[data-scroll-animate]:nth-child(6) { transition-delay: 0.6s; }
+
+/* Smooth transitions for dark mode */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Prevent transition on specific elements that animate themselves */
+[data-scroll-animate],
+.scroll-animate {
+  transition: opacity 0.8s ease, transform 0.8s ease !important;
+}
+
+/* Hover effects with smooth transitions */
+button,
+a {
+  transition: all 0.3s ease;
+}
+
+/* Floating animation for hero section */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-reverse {
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+/* Pulse animation for attention-grabbing elements */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+/* Smooth page transitions */
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+:root {
+  animation: pageLoad 0.6s ease-out;
+}

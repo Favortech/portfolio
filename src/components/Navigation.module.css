@@ -1,0 +1,129 @@
+/* CSS Modules: Styles are scoped to this component only */
+/* This prevents style conflicts when you have many components */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark mode styles */
+:global(.dark) .navbar {
+  background-color: rgba(30, 30, 30, 0.8);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: var(--accent-primary);
+}
+
+:global(.dark) .logo {
+  color: #fff;
+}
+
+:global(.dark) .logo:hover {
+  color: #00c4ff;
+}
+
+/* Navigation Links List */
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navLinks a:hover {
+  color: var(--accent-primary);
+}
+
+:global(.dark) .navLinks a {
+  color: var(--text-secondary);
+}
+
+:global(.dark) .navLinks a:hover {
+  color: var(--accent-secondary);
+}
+
+/* Theme Toggle Button */
+.themeToggle {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgba(0, 102, 204, 0.1);
+}
+
+.themeToggle:hover {
+  background-color: rgba(0, 102, 204, 0.2);
+  transform: scale(1.1);
+}
+
+:global(.dark) .themeToggle {
+  background-color: rgba(0, 196, 255, 0.1);
+}
+
+:global(.dark) .themeToggle:hover {
+  background-color: rgba(0, 196, 255, 0.2);
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .navLinks {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .themeToggle {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+}
